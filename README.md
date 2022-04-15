@@ -1,34 +1,28 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# :tada: Aloha - *A Library of Helpful Articles*
 
-## Getting Started
+This is the official repository for [Aloha](), the library of helpful articles that helps master
+your craft. This is where authors showcase their knowledge on everything to do with the development
+and production of software. Best practices and tips are shared in well written article with a functionality
+that allows readers and peers to comment on the article.
 
-First, run the development server:
+## How it works
+To gain access to these helpful articles, you first of all need to create an account. This will allow you to publish
+ articles and also react to articles published by other authors. To ensure that this platform remains stays true
+ to its mission, articles that are published will be moderated. This means that articles that do not meet the do
+ not meet our high standards of quality will be taken down. However, in order to preseve the dignity of each 
+ publisher, they will be contacted privately to either take it down themselves and update the content. It is only when
+ they fail to do so that we will effectively remove the article.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+ ## Mission
+Our mission is to make computer science accessible to everyone. And when we say everyone, that include everyone you
+can think of. In order to achieve our mission, we intend to include the functionality to allow authors to include 
+both audio and video files of their articles to ensure it is accessible to all.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# How you can contribute
+If you would like to support this project, first of all, tell others about it. Alternately, you can buy the team a 
+cup of [coffee](). :+1::tada:
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Thank you!
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+:tada:  Aloha Dev Team  :tada:
