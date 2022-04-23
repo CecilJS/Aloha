@@ -22,7 +22,7 @@ const Home: NextPage = () => {
         <main>
           <Flex direction="column" p={12} bg="primary" color="secondary">
             <Heading as="h1" size="4xl" mb={6}>
-              A Library of Helpful Articles!
+              A Library of Helpful Articles
             </Heading>
 
             <Text textAlign="center" mb={6}>
