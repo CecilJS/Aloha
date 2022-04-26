@@ -1,15 +1,7 @@
-interface NavItems {
-  brand: string;
-
-  home: string;
-
-  about: string;
-
-  contact: string;
-
-  login: string;
-
-  signup: string;
+interface NavItem {
+  label: string;
+  subLabel?: string;
+  children?: Array<NavItem>;
+  href?: string;
 }
-
-export default NavItems;
+export default NavItem;
