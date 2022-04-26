@@ -22,7 +22,7 @@ const Home: NextPage = () => {
 
       <main>
         <Flex
-          height="87.3vh"
+          height="93.5vh"
           alignItems="center"
           justifyContent="center"
           bg="primary"
@@ -45,7 +45,7 @@ const Home: NextPage = () => {
               fontSize="3xl"
               textShadow="0 0 20px black"
             >
-              Discover helpful articles that can help you develop your craft
+              This is the explore page.
             </Text>
             <Button
               as={Link}

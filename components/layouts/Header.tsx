@@ -27,14 +27,11 @@ export default function Header() {
   return (
     <Box>
       <Flex
-        bg={useColorModeValue("primary", "gray.800")}
-        color={useColorModeValue("secondary", "white")}
+        bg={useColorModeValue("primary", "secondary")}
+        color={useColorModeValue("secondary", "primary")}
         minH={"60px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
-        borderBottom={0}
-        borderStyle={"solid"}
-        borderColor={useColorModeValue("gray.200", "gray.900")}
         align={"center"}
       >
         <Flex
@@ -49,12 +46,19 @@ export default function Header() {
             }
             variant={"ghost"}
             aria-label={"Toggle Navigation"}
+            outline="none"
+            _hover={{
+              bg: "primary",
+              color: "secondary",
+              outline: "none",
+            }}
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <Text
             as={Link}
             href={"/"}
+            fontSize={{ base: "lg", md: "xl" }}
             textDecoration={"none"}
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"mono"}
@@ -85,8 +89,8 @@ export default function Header() {
             href={"/signin"}
             color="secondary"
             _hover={{
-              bg: "primary",
-              color: "secondary",
+              textDecoration: "none",
+              color: "tertiary",
             }}
           >
             Sign In
@@ -129,8 +133,16 @@ const DesktopNav = () => {
             color="secondary"
             _hover={{
               textDecoration: "none",
+              color: "tertiary",
+            }}
+            _active={{
+              textDecoration: "none",
               color: "primary",
               bg: "secondary",
+            }}
+            _visited={{
+              textDecoration: "none",
+              fontSize: "md",
             }}
           >
             {navItem.label}
@@ -188,7 +200,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
           align={"center"}
           flex={1}
         >
-          <Icon color={"orimary"} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={"primary"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>
@@ -220,6 +232,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
         href={href ?? "#"}
         justify={"space-between"}
         align={"center"}
+        outline="none"
         _hover={{
           textDecoration: "none",
           outline: "none",
@@ -230,10 +243,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
           color={useColorModeValue("primary", "secondary")}
           _hover={{
             textDecoration: "none",
-            bg: "primary",
-            color: "secondary",
-            outline: "none",
-            padding: "5px",
+            color: "tertiary",
           }}
         >
           {label}
