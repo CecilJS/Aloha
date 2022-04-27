@@ -1,6 +1,8 @@
 import { EmailIcon, InfoIcon } from "@chakra-ui/icons";
 import {
   Flex,
+  Button,
+  Link,
   Heading,
   Text,
   Input,
@@ -12,23 +14,7 @@ import {
 } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
-import AloButton from "../components/ui/Button";
 
-const buttonStyle = [
-  {
-    id: "1",
-    href: "/about",
-    color: "secondary",
-    bgColor: "primary",
-    height: "5vw",
-    marginBottom: "2",
-    borderColor: "secondary",
-    hoverBgColor: "secondary",
-    hoverColor: "primary",
-    hoverBorderColor: "secondary",
-    text: "Send",
-  },
-];
 const Contact: NextPage = () => {
   return (
     <div style={{ backgroundColor: "#6600CC" }}>
@@ -108,7 +94,25 @@ const Contact: NextPage = () => {
                 rows={5}
               />
 
-              <AloButton buttonProps={buttonStyle}>Send</AloButton>
+              <Button
+                as={Link}
+                href={"/about"}
+                color="secondary"
+                bg="primary"
+                w="10vw"
+                mb="2"
+                border="1px solid"
+                borderColor="secondary"
+                _hover={{
+                  bg: "secondary",
+                  color: "primary",
+                  border: "1px solid",
+                  borderColor: "primary",
+                  textDecoration: "none",
+                }}
+              >
+                Send
+              </Button>
             </form>
           </Flex>
         </Flex>
