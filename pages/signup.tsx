@@ -109,8 +109,8 @@ const SignUp: NextPage = () => {
               Sign Up
             </Button>
             <Checkbox size="sm">I agree to Aloha User Agreement</Checkbox>
-            <Text mb={2} as={Link} href={"/reset"}>
-              Forgot your account?
+            <Text mb={2} size="sm" as={Link} href={"/reset"}>
+              Forgot your password?
             </Text>
             <Text mb={1} as={Link} href={"/signin"}>
               Sign In

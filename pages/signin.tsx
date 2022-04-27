@@ -90,7 +90,7 @@ const SignIn: NextPage = () => {
               Sign In
             </Button>
             <Text mb={2} as={Link} href={"/reset"}>
-              Forgot your account?
+              Forgot your password?
             </Text>
             <Text mb={1} as={Link} href={"/signup"}>
               Create an account
