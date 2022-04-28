@@ -168,7 +168,7 @@ const Contact: NextPage = () => {
                 type="submit"
                 color="secondary"
                 bg="primary"
-                w="2ovw"
+                w="15vw"
                 mb="2"
                 border="1px solid"
                 borderColor="secondary"
