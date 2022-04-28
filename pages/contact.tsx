@@ -2,7 +2,6 @@ import { EmailIcon, InfoIcon } from "@chakra-ui/icons";
 import {
   Flex,
   Button,
-  Link,
   Heading,
   Text,
   Input,
@@ -11,11 +10,22 @@ import {
   FormLabel,
   InputLeftElement,
   InputGroup,
+  Box,
 } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useForm } from "react-hook-form";
 
 const Contact: NextPage = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  console.log(errors);
+  const onSubmitForm = (data: any) => {
+    console.log(data);
+  };
   return (
     <div style={{ backgroundColor: "#6600CC" }}>
       <Head>
@@ -55,23 +65,51 @@ const Contact: NextPage = () => {
             <Text mb={6} fontSize="sm">
               Thank you for contacting us, we will be in touch shortly!
             </Text>
-            <form action="submit" method="POST">
-              <FormControl isRequired>
+            <form
+              action="submit"
+              method="POST"
+              onSubmit={handleSubmit(onSubmitForm)}
+            >
+              <FormControl>
                 <FormLabel htmlFor="email">Email address</FormLabel>
                 <InputGroup>
                   <InputLeftElement children={<EmailIcon color="primary" />} />
                   <Input
+                    color="tertiary"
                     id="email"
                     placeholder="Email"
                     variant="filled"
                     mb={3}
                     type="email"
                     aria-lable="Email"
+                    {...register("email", {
+                      required: "Please enter with your email address.",
+                      minLength: {
+                        value: 8,
+                        message: "Please enter a valid email address.",
+                      },
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: "Please enter a valid email address.",
+                      },
+                      maxLength: {
+                        value: 50,
+                        message:
+                          "The email address is too long. Please double check and try again.",
+                      },
+                    })}
                     _active={{
                       outlineColor: "secondary",
+                      color: "secondary",
+                    }}
+                    _hover={{
+                      color: "tertiary",
                     }}
                   />
                 </InputGroup>
+                <Box as="span" color="warning" fontSize="sm">
+                  {errors?.email?.message}
+                </Box>
                 <FormLabel htmlFor="full-name">Full name</FormLabel>
                 <InputGroup>
                   <InputLeftElement children={<InfoIcon color="primary" />} />
@@ -79,24 +117,56 @@ const Contact: NextPage = () => {
                     id="full-name"
                     placeholder="James Brown"
                     variant="filled"
-                    mb={6}
+                    mb={3}
                     type="text"
+                    {...register("name", {
+                      required: "Please enter with your fullname.",
+                      minLength: {
+                        value: 3,
+                        message: "Must be at least 3 characters",
+                      },
+                      maxLength: {
+                        value: 20,
+                        message: "Must be less than 20 characters",
+                      },
+                    })}
                   />
                 </InputGroup>
+                <Box as="span" color="warning" fontSize="sm">
+                  {errors?.name?.message}
+                </Box>
               </FormControl>
-              <FormLabel htmlFor="message"></FormLabel>
-              <Textarea
-                id="message"
-                placeholder="Please type your message here"
-                size="md"
-                mb={6}
-                variant="filled"
-                rows={5}
-              />
 
+              <FormLabel htmlFor="message"></FormLabel>
+              <Box>
+                <Textarea
+                  id="message"
+                  placeholder="Please type your message here"
+                  size="md"
+                  mb={3}
+                  variant="filled"
+                  rows={5}
+                  {...register("message", {
+                    required:
+                      "You have probably forgotten to type your message.",
+                    minLength: {
+                      value: 10,
+                      message:
+                        "The content of your message must be at least 10 characters long.",
+                    },
+                    maxLength: {
+                      value: 1000,
+                      message:
+                        "The content of your message must not exceed 1000 characters.",
+                    },
+                  })}
+                />
+                <Box as="span" color="warning" fontSize="sm">
+                  <Flex mb={6}> {errors?.message?.message}</Flex>
+                </Box>
+              </Box>
               <Button
-                as={Link}
-                href={"/about"}
+                type="submit"
                 color="secondary"
                 bg="primary"
                 w="10vw"
