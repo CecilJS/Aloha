@@ -70,7 +70,7 @@ const Contact: NextPage = () => {
               method="POST"
               onSubmit={handleSubmit(onSubmitForm)}
             >
-              <FormControl>
+              <FormControl isRequired>
                 <FormLabel htmlFor="email">Email address</FormLabel>
                 <InputGroup>
                   <InputLeftElement children={<EmailIcon color="primary" />} />
@@ -108,7 +108,7 @@ const Contact: NextPage = () => {
                   />
                 </InputGroup>
                 <Box as="span" color="warning" fontSize="sm">
-                  {errors?.email?.message}
+                  <Flex mb={6}>{errors?.email?.message}</Flex>
                 </Box>
                 <FormLabel htmlFor="full-name">Full name</FormLabel>
                 <InputGroup>
@@ -133,43 +133,42 @@ const Contact: NextPage = () => {
                   />
                 </InputGroup>
                 <Box as="span" color="warning" fontSize="sm">
-                  {errors?.name?.message}
+                  <Flex mb={6}>{errors?.name?.message}</Flex>
                 </Box>
               </FormControl>
 
               <FormLabel htmlFor="message"></FormLabel>
-              <Box>
-                <Textarea
-                  id="message"
-                  placeholder="Please type your message here"
-                  size="md"
-                  mb={3}
-                  variant="filled"
-                  rows={5}
-                  {...register("message", {
-                    required:
-                      "You have probably forgotten to type your message.",
-                    minLength: {
-                      value: 10,
-                      message:
-                        "The content of your message must be at least 10 characters long.",
-                    },
-                    maxLength: {
-                      value: 1000,
-                      message:
-                        "The content of your message must not exceed 1000 characters.",
-                    },
-                  })}
-                />
-                <Box as="span" color="warning" fontSize="sm">
-                  <Flex mb={6}> {errors?.message?.message}</Flex>
-                </Box>
+
+              <Textarea
+                id="message"
+                placeholder="Please type your message here"
+                size="md"
+                mb={3}
+                variant="filled"
+                rows={5}
+                {...register("message", {
+                  required: "You have probably forgotten to type your message.",
+                  minLength: {
+                    value: 10,
+                    message:
+                      "The content of your message must be at least 10 characters long.",
+                  },
+                  maxLength: {
+                    value: 1000,
+                    message:
+                      "The content of your message must not exceed 1000 characters.",
+                  },
+                })}
+              />
+              <Box as="span" color="warning" fontSize="sm">
+                <Flex mb={6}> {errors?.message?.message}</Flex>
               </Box>
+
               <Button
                 type="submit"
                 color="secondary"
                 bg="primary"
-                w="10vw"
+                w="2ovw"
                 mb="2"
                 border="1px solid"
                 borderColor="secondary"
