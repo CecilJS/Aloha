@@ -12,6 +12,7 @@ import {
   InputGroup,
   Box,
 } from "@chakra-ui/react";
+import axios from "axios";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useForm } from "react-hook-form";
@@ -20,11 +21,29 @@ const Contact: NextPage = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
-  console.log(errors);
-  const onSubmitForm = (data: any) => {
-    console.log(data);
+
+  const onSubmitForm = async (data: any) => {
+    const config = {
+      method: "POST",
+      url: "http://localhost:3000/api/hello",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    try {
+      const response = await axios(config);
+      if (response.status === 200) {
+        reset();
+        console.log(`Success: ${response.data}`);
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
   return (
     <div style={{ backgroundColor: "#6600CC" }}>
