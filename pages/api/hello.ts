@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import nodemailer from "nodemailer";
+const postmark = require("postmark");
 
 type Data = {
   name: string;
@@ -10,26 +10,24 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   const { name, email, message } = req.body;
-  const transporter = nodemailer.createTransport({
-    host: "smtp.gmail.email",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.user,
-      pass: process.env.pass,
-    },
-  });
 
-  try {
-    const mailResponse = await transporter.sendMail({
-      from: email,
-      to: process.env.user,
-      subject: "New Message from " + name,
-      text: message,
+  const serverToken = process.env.NEXT_PUBLIC_POSTMARK_TOKEN;
+  const client = new postmark.ServerClient(serverToken);
+
+  client
+    .sendEmail({
+      From: "cecil@tendercrown.co.uk",
+      To: email,
+      Subject: `Message from ${name}`,
+      TextBody: message,
       html: `<p>${message}</p>`,
-    });
-    console.log("Message sent: %s", mailResponse.messageId);
-  } catch (error) {}
+    })
+    .then((response: any) => {
+      console.log("Sending message");
+      console.log(response.To);
+      console.log(response.Message);
+    })
+    .catch((error: any) => console.log(error.message));
 
-  res.status(200).json({ name: "John Doe" });
+  res.status(200).json({ name: name });
 }
