@@ -38,8 +38,8 @@ const Contact: NextPage = () => {
     try {
       const response = await axios(config);
       if (response.status === 200) {
+        alert("Message sent successfully");
         reset();
-        console.log(`Success: ${response.data}`);
       }
     } catch (e) {
       console.log(e);
