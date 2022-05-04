@@ -28,7 +28,10 @@ const Contact: NextPage = () => {
   const onSubmitForm = async (data: any) => {
     const config = {
       method: "POST",
-      url: "http://localhost:3000/api/hello",
+      url:
+        process.env.NODE_ENV === "development"
+          ? process.env.NEXT_PUBLIC_DEV
+          : process.env.NEXT_PUBLIC_PROD,
       headers: {
         "Content-Type": "application/json",
       },
