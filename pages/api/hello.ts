@@ -16,7 +16,7 @@ export default async function handler(
 
   client
     .sendEmail({
-      From: "cecil@tendercrown.co.uk",
+      From: process.env.NEXT_PUBLIC_EMAIL,
       To: email,
       Subject: `Message from ${name}`,
       TextBody: message,
