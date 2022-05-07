@@ -1,4 +1,4 @@
-import NavItem from "../interfaces/interfaces";
+import { NavItem } from "../interfaces/interfaces";
 import {
   Box,
   Flex,
