@@ -11,11 +11,13 @@ import {
   InputLeftElement,
   InputGroup,
   Box,
+  useToast,
 } from "@chakra-ui/react";
 import axios from "axios";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const Contact: NextPage = () => {
   const {
@@ -24,6 +26,8 @@ const Contact: NextPage = () => {
     reset,
     formState: { errors },
   } = useForm();
+  const toast = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const onSubmitForm = async (data: any) => {
     const config = {
@@ -38,14 +42,29 @@ const Contact: NextPage = () => {
     try {
       const response = await axios(config);
       if (response.status === 200) {
+        setIsSubmitting(true);
         reset();
       }
     } catch (e) {
       console.log(e);
     }
   };
+
+  const handleFeedback = async () => {
+    if (isSubmitting) {
+      toast({
+        title: "Message Sent!",
+        description:
+          "Thank you for contacting Aloha. We will be in touch with you shortly.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+  };
+
   return (
-    <div style={{ backgroundColor: "#6600CC" }}>
+    <>
       <Head>
         <title> Contact Form - Aloha | A Library of Helpful Articles</title>
         <meta
@@ -112,8 +131,7 @@ const Contact: NextPage = () => {
                       },
                       maxLength: {
                         value: 50,
-                        message:
-                          "The email address is too long. Please double check and try again.",
+                        message: "The email address is too long.",
                       },
                     })}
                     _active={{
@@ -197,6 +215,7 @@ const Contact: NextPage = () => {
                   borderColor: "primary",
                   textDecoration: "none",
                 }}
+                onClick={handleFeedback}
               >
                 Send
               </Button>
@@ -204,7 +223,7 @@ const Contact: NextPage = () => {
           </Flex>
         </Flex>
       </main>
-    </div>
+    </>
   );
 };
 
