@@ -1,0 +1,10 @@
+.bg_color {
+  background-color: #6600cc;
+  color: #fff;
+  height: 94vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}

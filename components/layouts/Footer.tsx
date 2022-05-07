@@ -42,6 +42,19 @@ export default function Footer() {
           >
             Aloha! &copy; {currentYear}
           </Text>
+          <Text>
+            &nbsp; &nbsp; Made with ❤️ by{" "}
+            <Link
+              href="https://cecilan.uk/"
+              target="_blank"
+              textDecoration={"none"}
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
+              CecilJS
+            </Link>
+          </Text>
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />

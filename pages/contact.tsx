@@ -27,7 +27,7 @@ const Contact: NextPage = () => {
     formState: { errors },
   } = useForm();
   const toast = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const onSubmitForm = async (data: any) => {
     const config = {
@@ -42,7 +42,7 @@ const Contact: NextPage = () => {
     try {
       const response = await axios(config);
       if (response.status === 200) {
-        setIsSubmitting(true);
+        setIsSuccess(!isSuccess);
         reset();
       }
     } catch (e) {
@@ -51,7 +51,7 @@ const Contact: NextPage = () => {
   };
 
   const handleFeedback = async () => {
-    if (isSubmitting) {
+    if (isSuccess) {
       toast({
         title: "Message Sent!",
         description:
@@ -60,6 +60,7 @@ const Contact: NextPage = () => {
         duration: 9000,
         isClosable: true,
       });
+      setIsSuccess(false);
     }
   };
 

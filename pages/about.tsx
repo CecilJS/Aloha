@@ -1,8 +1,10 @@
-import { Button, Flex, Heading, Text, Link } from "@chakra-ui/react";
+import { Box, Flex, Heading } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
+import Drawer from "../components/ui/Drawer";
+import Card from "../components/ui/Card";
 
-const Home: NextPage = () => {
+const About: NextPage = () => {
   return (
     <div style={{ backgroundColor: "#6600CC" }}>
       <Head>
@@ -23,46 +25,37 @@ const Home: NextPage = () => {
       <main>
         <Flex
           height="93.5vh"
-          alignItems="center"
-          justifyContent="center"
+          alignItems="left"
+          justifyContent="left"
           bg="secondary"
         >
-          <Flex
-            direction="column"
-            p={12}
-            bg="primary"
+          <Drawer />
+
+          <Heading
+            textAlign="center"
+            size="md"
+            mt={10}
+            ml={-1}
             color="secondary"
+            fontFamily={"mono"}
+            backgroundColor="primary"
+            height="5%"
+            width="10%"
+            display="flex"
             alignItems="center"
             justifyContent="center"
           >
-            <Heading as="h1" size="4xl" mb={6} textAlign="center">
-              A Library of Helpful Articles
-            </Heading>
-
-            <Text
-              textAlign="center"
-              mb={6}
-              fontSize="3xl"
-              textShadow="0 0 20px black"
-            >
-              This is the about page
-            </Text>
-            <Button
-              as={Link}
-              href={"/about"}
-              color="primary"
-              bg="secondary"
-              w="2ovw"
-              _hover={{
-                bg: "primary",
-                color: "secondary",
-                border: "1px solid",
-                borderColor: "secondary",
-                textDecoration: "none",
-              }}
-            >
-              GET STARTED
-            </Button>
+            What's New?{" "}
+          </Heading>
+          <Flex>
+            <Box m={5}>
+              <Card />
+              <Card />
+            </Box>
+            <Box m={5}>
+              <Card />
+              <Card />
+            </Box>
           </Flex>
         </Flex>
       </main>
@@ -70,4 +63,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default About;

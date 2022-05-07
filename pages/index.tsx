@@ -4,7 +4,7 @@ import Head from "next/head";
 
 const Home: NextPage = () => {
   return (
-    <div style={{ backgroundColor: "#6600CC" }}>
+    <div>
       <Head>
         <title>Aloha | A Library of Helpful Articles</title>
         <meta
@@ -25,7 +25,10 @@ const Home: NextPage = () => {
           height="87.3vh"
           alignItems="center"
           justifyContent="center"
-          bg="primary"
+          bgImage="url('https://bit.ly/2Z4KKcF')"
+          bgSize="cover"
+          bgRepeat="no-repeat"
+          bgPosition="left"
         >
           <Flex
             direction="column"
@@ -34,6 +37,7 @@ const Home: NextPage = () => {
             color="secondary"
             alignItems="center"
             justifyContent="center"
+            opacity={0.9}
           >
             <Heading as="h1" size="4xl" mb={6} textAlign="center">
               A Library of Helpful Articles
