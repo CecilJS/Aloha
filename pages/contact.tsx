@@ -28,10 +28,7 @@ const Contact: NextPage = () => {
   const onSubmitForm = async (data: any) => {
     const config = {
       method: "POST",
-      url:
-        process.env.NODE_ENV === "development"
-          ? process.env.NEXT_PUBLIC_DEV
-          : process.env.NEXT_PUBLIC_PROD,
+      url: "/api/hello",
       headers: {
         "Content-Type": "application/json",
       },
@@ -41,7 +38,6 @@ const Contact: NextPage = () => {
     try {
       const response = await axios(config);
       if (response.status === 200) {
-        alert("Message sent successfully");
         reset();
       }
     } catch (e) {
