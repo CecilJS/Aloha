@@ -48,11 +48,11 @@ const About: NextPage = () => {
             What's New?{" "}
           </Heading>
           <Flex>
-            <Box m={5}>
+            <Box ml={10} mt={20}>
               <Card />
               <Card />
             </Box>
-            <Box m={5}>
+            <Box ml={10} mt={20}>
               <Card />
               <Card />
             </Box>

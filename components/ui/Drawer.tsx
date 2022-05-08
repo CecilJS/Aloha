@@ -1,4 +1,4 @@
-import { Box, Button, Heading, Text } from "@chakra-ui/react";
+import { Box, Button, Heading, Text, Link } from "@chakra-ui/react";
 import classes from "./Drawer.module.css";
 
 function Drawer() {
@@ -29,7 +29,8 @@ function Drawer() {
             exchange platform.
           </Text>
           <Button
-            type="submit"
+            as={Link}
+            href={"/signup"}
             color="secondary"
             bg="primary"
             w="15vw"

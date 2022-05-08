@@ -40,7 +40,7 @@ export default function Footer() {
               textDecoration: "none",
             }}
           >
-            Aloha! &copy; {currentYear}
+            Aloha! &copy; {currentYear} &nbsp; &nbsp;
           </Text>
           <Text>
             &nbsp; &nbsp; Made with ❤️ by{" "}
