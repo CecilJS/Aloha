@@ -1,11 +1,17 @@
-import { Box, Button, Heading, Text, Link } from "@chakra-ui/react";
-import classes from "./Drawer.module.css";
+import { Container, Button, Heading, Text, Link, Flex } from "@chakra-ui/react";
 
 function Drawer() {
   return (
     <>
-      <div className={classes.bg_color}>
-        <Box p={15} m={10}>
+      <Flex
+        justify-content="flex-start"
+        align-items="center"
+        height="94vh"
+        width="30vw"
+        backgroundColor="primary"
+        color="secondary"
+      >
+        <Container p={15} m={10}>
           <Heading size="md" fontSize="4xl">
             Getting Started
           </Heading>
@@ -48,8 +54,8 @@ function Drawer() {
           >
             Sign Up
           </Button>
-        </Box>
-      </div>
+        </Container>
+      </Flex>
     </>
   );
 }

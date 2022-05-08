@@ -22,43 +22,42 @@ const About: NextPage = () => {
         />
       </Head>
 
-      <main>
-        <Flex
-          height="93.5vh"
-          alignItems="left"
-          justifyContent="left"
-          bg="secondary"
-        >
-          <Drawer />
+      <Flex
+        height="93.5vh"
+        alignItems="left"
+        justifyContent="left"
+        bg="secondary"
+        direction={{ base: "row", md: "row", sm: "column" }}
+      >
+        <Drawer />
 
-          <Heading
-            textAlign="center"
-            size="md"
-            mt={10}
-            ml={-1}
-            color="secondary"
-            fontFamily={"mono"}
-            backgroundColor="primary"
-            height="5%"
-            width="10%"
-            display="flex"
-            alignItems="center"
-            justifyContent="center"
-          >
-            What's New?{" "}
-          </Heading>
-          <Flex>
-            <Box ml={10} mt={20}>
-              <Card />
-              <Card />
-            </Box>
-            <Box ml={10} mt={20}>
-              <Card />
-              <Card />
-            </Box>
-          </Flex>
+        <Heading
+          textAlign="center"
+          size="md"
+          mt={10}
+          ml={-1}
+          color="secondary"
+          fontFamily={"mono"}
+          backgroundColor="primary"
+          height="5%"
+          width="10%"
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+        >
+          What's New?{" "}
+        </Heading>
+        <Flex direction={{ base: "row", md: "row", sm: "column" }}>
+          <Box ml={10} mt={20}>
+            <Card />
+            <Card />
+          </Box>
+          <Box ml={10} mt={20}>
+            <Card />
+            <Card />
+          </Box>
         </Flex>
-      </main>
+      </Flex>
     </div>
   );
 };

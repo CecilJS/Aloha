@@ -56,7 +56,7 @@ export default function Footer() {
             </Link>
           </Text>
 
-          <Flex display={{ base: "none", md: "flex" }} ml={10}>
+          <Flex display={{ base: "flex", md: "flex" }} ml={10}>
             <DesktopNav />
           </Flex>
         </Flex>
