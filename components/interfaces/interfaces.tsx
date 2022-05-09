@@ -18,3 +18,14 @@ export interface AlohaButton {
   hoverBorderColor: string;
   text: string;
 }
+
+export interface Article {
+  imageUrl: string;
+  imageAlt: string;
+  duration: string;
+  mode: string;
+  title: string;
+  author: string;
+  reviewCount: number;
+  rating: number;
+}

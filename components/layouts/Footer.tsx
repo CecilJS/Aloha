@@ -21,17 +21,26 @@ export default function Footer() {
         py={{ base: 2 }}
         px={{ base: 4 }}
         align={"center"}
+        justify={"space-around"}
       >
         <Flex
           flex={{ base: 1 }}
           justify={{ base: "center", md: "start" }}
           alignItems="center"
           justifyContent="center"
+          direction={{
+            base: "column-reverse",
+            xl: "row",
+            lg: "row",
+            md: "column-reverse",
+            sm: "column-reverse",
+          }}
         >
           <Text
             as={Link}
             href={"/"}
             fontSize={{ base: "lg", md: "xl" }}
+            mt={{ base: 5, md: 0 }}
             textDecoration={"none"}
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"mono"}
@@ -42,7 +51,7 @@ export default function Footer() {
           >
             Aloha! &copy; {currentYear} &nbsp; &nbsp;
           </Text>
-          <Text>
+          <Text mt={{ base: 5, md: 0 }}>
             &nbsp; &nbsp; Made with ❤️ by{" "}
             <Link
               href="https://cecilan.uk/"
@@ -60,13 +69,6 @@ export default function Footer() {
             <DesktopNav />
           </Flex>
         </Flex>
-
-        <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={6}
-        ></Stack>
       </Flex>
     </Box>
   );
@@ -74,7 +76,16 @@ export default function Footer() {
 
 const DesktopNav = () => {
   return (
-    <Stack direction={"row"} spacing={4}>
+    <Stack
+      direction={{
+        base: "column",
+        xl: "row",
+        lg: "row",
+        md: "row",
+        sm: "column",
+      }}
+      spacing={4}
+    >
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Link

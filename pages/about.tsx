@@ -4,9 +4,21 @@ import Head from "next/head";
 import Drawer from "../components/ui/Drawer";
 import Card from "../components/ui/Card";
 
+// Dummy data - should be fetching data from the db
+const data = {
+  imageUrl: "https://tinyurl.com/43zpc85s",
+  imageAlt: "A million lines of code written by a single person",
+  duration: "10 Minutes",
+  mode: "Read",
+  title: "Learn JavaScript in 2022",
+  author: "Nathan W.",
+  reviewCount: 20,
+  rating: 4,
+};
+
 const About: NextPage = () => {
   return (
-    <div style={{ backgroundColor: "#6600CC" }}>
+    <>
       <Head>
         <title>Aloha | A Library of Helpful Articles</title>
         <meta
@@ -23,42 +35,65 @@ const About: NextPage = () => {
       </Head>
 
       <Flex
-        height="93.5vh"
+        height="100%"
         alignItems="left"
         justifyContent="left"
         bg="secondary"
-        direction={{ base: "row", md: "row", sm: "column" }}
+        direction={{
+          base: "column",
+          xl: "row",
+          lg: "column",
+          md: "column",
+          sm: "column",
+        }}
       >
         <Drawer />
 
         <Heading
           textAlign="center"
-          size="md"
+          fontSize={{ base: "24px", md: "26px", lg: "36px" }}
+          p={{ base: "10px", md: "5px", lg: "10px" }}
           mt={10}
           ml={-1}
           color="secondary"
           fontFamily={"mono"}
           backgroundColor="primary"
-          height="5%"
-          width="10%"
+          height="15%"
+          width={{
+            base: "50vw",
+            xl: "20%",
+            lg: "20%",
+            md: "30vw",
+            sm: "100vw",
+          }}
           display="flex"
           alignItems="center"
           justifyContent="center"
         >
           What's New?{" "}
         </Heading>
-        <Flex direction={{ base: "row", md: "row", sm: "column" }}>
-          <Box ml={10} mt={20}>
-            <Card />
-            <Card />
+        <Flex
+          direction={{
+            base: "column",
+            xl: "row",
+            lg: "row",
+            md: "column",
+            sm: "column",
+          }}
+          alignItems="center"
+          justifyContent="space-around"
+        >
+          <Box ml={10} mr={10} mt={20}>
+            <Card {...data} />
+            <Card {...data} />
           </Box>
-          <Box ml={10} mt={20}>
-            <Card />
-            <Card />
+          <Box ml={10} mr={10} mt={20}>
+            <Card {...data} />
+            <Card {...data} />
           </Box>
         </Flex>
       </Flex>
-    </div>
+    </>
   );
 };
 
