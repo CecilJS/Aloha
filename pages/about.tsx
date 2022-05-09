@@ -1,4 +1,4 @@
-import { Box, Flex, Heading } from "@chakra-ui/react";
+import { Box, Flex, Heading, Link, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Drawer from "../components/ui/Drawer";
@@ -51,20 +51,23 @@ const About: NextPage = () => {
 
         <Heading
           textAlign="center"
-          fontSize={{ base: "24px", md: "26px", lg: "36px" }}
+          fontSize={{ base: "14px", md: "14px", lg: "14px" }}
           p={{ base: "10px", md: "5px", lg: "10px" }}
           mt={10}
-          ml={-1}
-          color="secondary"
-          fontFamily={"mono"}
-          backgroundColor="primary"
+          ml={-2}
+          color="primary"
+          border="1px solid"
+          borderColor="primary"
+          borderRadius={10}
+          fontFamily={"heading"}
+          backgroundColor="secondary"
           height="15%"
           width={{
             base: "50vw",
-            xl: "20%",
-            lg: "20%",
+            xl: "10%",
+            lg: "10%",
             md: "30vw",
-            sm: "100vw",
+            sm: "50vw",
           }}
           display="flex"
           alignItems="center"
@@ -75,21 +78,94 @@ const About: NextPage = () => {
         <Flex
           direction={{
             base: "column",
-            xl: "row",
-            lg: "row",
+            xl: "column",
+            lg: "column",
             md: "column",
             sm: "column",
           }}
           alignItems="center"
           justifyContent="space-around"
         >
-          <Box ml={10} mr={10} mt={20}>
-            <Card {...data} />
-            <Card {...data} />
-          </Box>
-          <Box ml={10} mr={10} mt={20}>
-            <Card {...data} />
-            <Card {...data} />
+          <Heading
+            textAlign="center"
+            fontSize={{ base: "24px", md: "26px", lg: "28px" }}
+            p={{ base: "10px", md: "5px", lg: "10px" }}
+            mt={10}
+            ml={-1}
+            color="primary"
+            textDecoration={"underline"}
+            fontFamily={"heading"}
+            alignItems="center"
+            justifyContent="center"
+          >
+            Explore
+          </Heading>
+          <Text as="i" fontSize={{ base: "16px", md: "18px", lg: "18px" }}>
+            Read insightful articles from the best authors
+          </Text>
+          <Box
+            display="flex"
+            flexDirection={{
+              base: "column",
+              xl: "row",
+              lg: "row",
+              md: "column",
+              sm: "column",
+            }}
+            justifyContent="space-around"
+            flexWrap={"wrap"}
+            ml={10}
+            mr={10}
+            mt={10}
+          >
+            <Link
+              href="/explore"
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
+              <Card {...data} />
+            </Link>
+            <Link
+              href="/explore"
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
+              <Card {...data} />
+            </Link>
+            <Link
+              href="/explore"
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
+              <Card {...data} />
+            </Link>
+            <Link
+              href="/explore"
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
+              <Card {...data} />
+            </Link>
+            <Link
+              href="/explore"
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
+              <Card {...data} />
+            </Link>
+            <Link
+              href="/explore"
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
+              <Card {...data} />
+            </Link>
           </Box>
         </Flex>
       </Flex>

@@ -11,7 +11,7 @@ function Drawer() {
         base: "100vw",
         xl: "30vw",
         lg: "100vw",
-        md: "100vw",
+        md: "100%",
         sm: "100vw",
       }}
       backgroundColor="primary"
