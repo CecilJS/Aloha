@@ -18,14 +18,14 @@ function Drawer() {
       color="secondary"
     >
       <Container p={15} m={10}>
-        <Heading size="md" fontSize="4xl">
+        <Heading size="md" fontSize="4xl" textDecoration={"underline"}>
           Getting Started
         </Heading>
         <Text mt={10}>
           Welcome to Aloha! A place where you can share your knowledge and
           receive so much more in return.
         </Text>
-        <Text mt={5} fontSize="3xl">
+        <Text mt={5} fontSize="3xl" fontWeight={"bold"}>
           "Words have power."
         </Text>
         <Text mt={5}>

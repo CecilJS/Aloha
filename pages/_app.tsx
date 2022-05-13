@@ -9,7 +9,7 @@ import { Global, css } from "@emotion/react";
 
 const GlobalStyles = css`
   /*
-    This will hide the focus indicator if the element receives focus    via the mouse,
+    This this ensures that the focus indicator is hidden if the element receives focus via the mouse,
     but it will still show up on keyboard focus.
   */
   .js-focus-visible :focus:not([data-focus-visible-added]) {
