@@ -1,10 +1,24 @@
-import { Button, Flex, Heading, Text, Link } from "@chakra-ui/react";
+import { Box, Flex, Heading, Link, Text } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
+import Drawer from "../components/ui/Drawer";
+import Card from "../components/ui/Card";
 
-const Home: NextPage = () => {
+// Dummy data - should be fetching data from the db
+const data = {
+  imageUrl: "https://tinyurl.com/43zpc85s",
+  imageAlt: "A million lines of code written by a single person",
+  duration: "10 Minutes",
+  mode: "Read",
+  title: "Learn JavaScript in 2022",
+  author: "Nathan W.",
+  reviewCount: 20,
+  rating: 4,
+};
+
+const About: NextPage = () => {
   return (
-    <div style={{ backgroundColor: "#6600CC" }}>
+    <>
       <Head>
         <title>Aloha | A Library of Helpful Articles</title>
         <meta
@@ -20,54 +34,143 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <main>
-        <Flex
-          height="93.5vh"
+      <Flex
+        height="100%"
+        alignItems="left"
+        justifyContent="left"
+        bg="secondary"
+        direction={{
+          base: "column",
+          xl: "row",
+          lg: "column",
+          md: "column",
+          sm: "column",
+        }}
+      >
+        <Drawer />
+
+        <Heading
+          textAlign="center"
+          fontSize={{ base: "14px", md: "14px", lg: "14px" }}
+          p={{ base: "10px", md: "5px", lg: "10px" }}
+          mt={10}
+          ml={-2}
+          color="primary"
+          border="1px solid"
+          borderColor="primary"
+          borderRadius={10}
+          fontFamily={"heading"}
+          backgroundColor="secondary"
+          height="15%"
+          width={{
+            base: "50vw",
+            xl: "10%",
+            lg: "10%",
+            md: "30vw",
+            sm: "50vw",
+          }}
+          display="flex"
           alignItems="center"
           justifyContent="center"
-          bg="secondary"
         >
-          <Flex
-            direction="column"
-            p={12}
-            bg="primary"
-            color="secondary"
+          What's New?{" "}
+        </Heading>
+        <Flex
+          direction={{
+            base: "column",
+            xl: "column",
+            lg: "column",
+            md: "column",
+            sm: "column",
+          }}
+          alignItems="center"
+          justifyContent="space-around"
+        >
+          <Heading
+            textAlign="center"
+            fontSize={{ base: "24px", md: "26px", lg: "28px" }}
+            p={{ base: "10px", md: "5px", lg: "10px" }}
+            mt={10}
+            ml={-1}
+            color="primary"
+            textDecoration={"underline"}
+            fontFamily={"heading"}
             alignItems="center"
             justifyContent="center"
           >
-            <Heading as="h1" size="4xl" mb={6} textAlign="center">
-              A Library of Helpful Articles
-            </Heading>
-
-            <Text
-              textAlign="center"
-              mb={6}
-              fontSize="3xl"
-              textShadow="0 0 20px black"
-            >
-              This is the about page
-            </Text>
-            <Button
-              as={Link}
-              href={"/about"}
-              color="primary"
-              bg="secondary"
-              w="2ovw"
+            Explore
+          </Heading>
+          <Text as="i" fontSize={{ base: "16px", md: "18px", lg: "18px" }}>
+            Read insightful articles from the best authors
+          </Text>
+          <Box
+            display="flex"
+            flexDirection={{
+              base: "column",
+              xl: "row",
+              lg: "row",
+              md: "column",
+              sm: "column",
+            }}
+            justifyContent="space-around"
+            flexWrap={"wrap"}
+            ml={10}
+            mr={10}
+            mt={10}
+          >
+            <Link
+              href="/explore"
               _hover={{
-                bg: "primary",
-                color: "secondary",
-                border: "1px solid",
-                borderColor: "secondary",
                 textDecoration: "none",
               }}
             >
-              GET STARTED
-            </Button>
-          </Flex>
+              <Card {...data} />
+            </Link>
+            <Link
+              href="/explore"
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
+              <Card {...data} />
+            </Link>
+            <Link
+              href="/explore"
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
+              <Card {...data} />
+            </Link>
+            <Link
+              href="/explore"
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
+              <Card {...data} />
+            </Link>
+            <Link
+              href="/explore"
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
+              <Card {...data} />
+            </Link>
+            <Link
+              href="/explore"
+              _hover={{
+                textDecoration: "none",
+              }}
+            >
+              <Card {...data} />
+            </Link>
+          </Box>
         </Flex>
-      </main>
-    </div>
+      </Flex>
+    </>
   );
 };
 
-export default Home;
+export default About;

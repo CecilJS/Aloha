@@ -16,16 +16,14 @@ export default async function handler(
 
   client
     .sendEmail({
-      From: process.env.NEXT_PUBLIC_EMAIL,
-      To: email,
+      From: email,
+      To: process.env.NEXT_PUBLIC_EMAIL,
       Subject: `Message from ${name}`,
       TextBody: message,
-      html: `<p>${message}</p>`,
+      html: `<p>Message From : ${email} <br/><p>${message}</p>`,
     })
     .then((response: any) => {
       console.log("Sending message");
-      console.log(response.To);
-      console.log(response.Message);
     })
     .catch((error: any) => console.log(error.message));
 

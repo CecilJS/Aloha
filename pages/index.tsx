@@ -4,7 +4,7 @@ import Head from "next/head";
 
 const Home: NextPage = () => {
   return (
-    <div style={{ backgroundColor: "#6600CC" }}>
+    <div>
       <Head>
         <title>Aloha | A Library of Helpful Articles</title>
         <meta
@@ -25,15 +25,20 @@ const Home: NextPage = () => {
           height="87.3vh"
           alignItems="center"
           justifyContent="center"
-          bg="primary"
+          bgImage="url('https://tinyurl.com/alohaofficialbg')"
+          bgSize="cover"
+          bgRepeat="no-repeat"
+          bgPosition="center"
         >
           <Flex
             direction="column"
             p={12}
-            bg="primary"
-            color="secondary"
+            bg="secondary"
+            color="primary"
             alignItems="center"
             justifyContent="center"
+            opacity={0.6}
+            borderRadius={10}
           >
             <Heading as="h1" size="4xl" mb={6} textAlign="center">
               A Library of Helpful Articles
@@ -43,7 +48,7 @@ const Home: NextPage = () => {
               textAlign="center"
               mb={6}
               fontSize="3xl"
-              textShadow="0 0 20px black"
+              textShadow="0 0 20px primary"
             >
               Discover helpful articles that can help you develop your craft
             </Text>
@@ -53,11 +58,13 @@ const Home: NextPage = () => {
               color="primary"
               bg="secondary"
               w="2ovw"
+              border="1px solid"
+              borderColor="primary"
               _hover={{
                 bg: "primary",
                 color: "secondary",
                 border: "1px solid",
-                borderColor: "secondary",
+                borderColor: "primary",
                 textDecoration: "none",
               }}
             >
@@ -71,3 +78,5 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+// https://tinyurl.com/alohacjs https://tinyurl.com/bgalohacjs
